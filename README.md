@@ -30,6 +30,6 @@ Website informasi dan manajemen kontrakan **Aldhica** — menyediakan hunian nya
 
 #### Dosen Pembimbing
 
-| Name | Expertise |
+| Name | Role |
 | :--- | :--- |
-| Jefree Fahana ST,M.Kom | Android/Mobile Development |
+| Jefree Fahana ST,M.Kom | Dosen Pembimbing |
