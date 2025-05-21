@@ -24,7 +24,7 @@ Website informasi dan manajemen kontrakan **Aldhica** — menyediakan hunian nya
 | :--- | :--- | :--- |
 | Muhammad Dhiwa Rahma Fathani |  2200018250 | Project Manager, Front-End|
 | Fahreza Mandala Putra| 2200018246 | Front-End, Bendahara |
-| Rizki Arya Putra| 2200018249 | UI/UX Design, Marketing |
+| Rifqi Arya Putra| 2200018249 | UI/UX Design, Marketing |
 | Faiz Nur Aqil| 2200018252 | Data Analyst, Back-End |
 | Merdeka Agustia Rizkyani | 2200018256 | Sekretaris, Tester |
 
