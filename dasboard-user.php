@@ -153,7 +153,7 @@
             <div class="card-content">
                 <h3>Tipe 1</h3>
                 <p>Program hunian sederhana dan nyaman dengan akses mudah ke fasilitas umum. Cocok untuk pasangan muda atau pekerja.</p>
-                <a href="#">Baca Selengkapnya</a>
+                <a href="detail-kontrakan.php?id=1">Baca Selengkapnya</a>
             </div>
         </div>
 
@@ -163,7 +163,7 @@
             <div class="card-content">
                 <h3>Tipe 2</h3>
                 <p>Kontrakan tipe sedang dengan tambahan ruang tamu dan dapur yang lebih luas. Ideal untuk keluarga kecil.</p>
-                <a href="#">Baca Selengkapnya</a>
+                <a href="detail-kontrakan.php?id=2">Baca Selengkapnya</a>
             </div>
         </div>
 
@@ -173,7 +173,7 @@
             <div class="card-content">
                 <h3>Tipe 3</h3>
                 <p>Unit dengan kapasitas lebih besar, cocok untuk keluarga dengan anak atau penghuni lebih dari 4 orang.</p>
-                <a href="#">Baca Selengkapnya</a>
+                <a href="detail-kontrakan.php?id=3">Baca Selengkapnya</a>
             </div>
         </div>
     </div>

@@ -75,7 +75,7 @@
   <header>
     <a href="#" class="brand">Aldhica</a>
     <nav class="nav-links">
-      <a href="dashboard-user.php">Beranda</a>
+      <a href="dasboard-user.php">Beranda</a>
       <a href="#">Peraturan</a>
       <a href="daftar.php">Daftar</a>
       <a href="login.php">Masuk</a>
