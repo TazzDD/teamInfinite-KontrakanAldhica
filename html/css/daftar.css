@@ -1,0 +1,222 @@
+/* Reset dan dasar */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f5f5;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+header {
+  background-color: #e6f7ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #1d2d3c;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1d2d3c;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #d9f0ff;
+}
+
+.contact-button {
+  background-color: #1d2d3c;
+  color: white !important;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-button:hover {
+  background-color: #142c3d;
+}
+
+/* Form Pendaftaran */
+.form-container {
+  background-color: #e0f7ff;
+  border-radius: 10px;
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #1c1c1c;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  width: 95%;
+  height: 20px;
+  padding: 15px 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+}
+
+.btn {
+  width: 100%;
+  background-color: #0c1b2a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #0a1724;
+}
+
+.login-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.login-link b {
+  color: #000;
+}
+
+/* Footer */
+.content {
+  flex: 1;
+}
+
+.footer {
+  background-color: #e3f5ff;
+  padding: 2rem 1rem 0;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-menu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.site-name {
+  margin-right: 1rem;
+  color: #1d2d3c;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.divider {
+  border-left: 4px solid #1d2d3c;
+  height: 60px;
+  margin: 0 1rem;
+}
+
+.footer .nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer .nav-links a {
+  text-decoration: none;
+  color: #1d2d3c;
+  font-weight: 500;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-contact a img {
+  width: 24px;
+  height: 24px;
+  transition: filter 0.3s ease;
+}
+
+.footer-contact a:hover img {
+  filter: brightness(0) saturate(100%) invert(34%) sepia(77%) saturate(1900%) hue-rotate(310deg) brightness(90%) contrast(101%);
+}
+
+.footer-contact span {
+  color: #1d2d3c;
+  font-weight: 500;
+}
+
+.footer-bottom {
+  background-color: #142c3d;
+  color: white;
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+  width: 100%;
+}
