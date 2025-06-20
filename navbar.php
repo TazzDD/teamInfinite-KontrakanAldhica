@@ -75,11 +75,11 @@
   <header>
     <a href="#" class="brand">Aldhica</a>
     <nav class="nav-links">
-      <a href="dasboard-user.php">Beranda</a>
-      <a href="#">Peraturan</a>
-      <a href="daftar.php">Daftar</a>
-      <a href="login.php">Masuk</a>
-      <a href="#" class="contact-button">Kontak</a>
+      <a href="html/index.html">Beranda</a>
+      <a href="html/peraturan.html">Peraturan</a>
+      <a href="html/daftar.html">Daftar</a>
+      <a href="html/login.html">Masuk</a>
+      <a href="html/kontak.html" class="contact-button">Kontak</a>
     </nav>
   </header>
 </body>

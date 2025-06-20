@@ -118,7 +118,7 @@
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-menu">
-                <div class="site-name">Nama Website</div>
+                <div class="site-name">Aldhica</div>
                 <div class="divider"></div>
                 <div class="nav-links">
                     <a href="#">Program</a>
