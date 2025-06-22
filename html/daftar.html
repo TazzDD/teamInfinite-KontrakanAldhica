@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar Akun</title>
   <link rel="stylesheet" href="css/daftar.css" />
+  <script src="js/auth.js" defer></script>
 </head>
 <body>
 
-    <header>
+  <header>
     <a href="#" class="brand">Aldhica</a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="nav-links">
       <a href="index.html">Beranda</a>
       <a href="peraturan.html">Peraturan</a>
-      <a href="daftar.html">Daftar</a>
-      <a href="login.html">Masuk</a>
+      <a href="daftar.html" id="daftar-link">Daftar</a>
+      <a href="login.html" id="masuk-link">Masuk</a>
       <a href="kontak.html" class="contact-button">Kontak</a>
     </nav>
   </header>
@@ -22,23 +23,23 @@
   <div class="content">
     <div class="container form-container">
       <h2>Daftar Akun</h2>
-      <form>
+      <form id="registerForm">
         <div class="form-group">
-          <input type="text" placeholder="Nama Lengkap" required>
+          <input type="text" id="reg-name" placeholder="Nama Lengkap" required>
         </div>
         <div class="form-group">
-          <input type="email" placeholder="Alamat Email" required>
+          <input type="text" id="reg-email" placeholder="Alamat Email" required>
         </div>
         <div class="form-group">
-          <input type="tel" placeholder="No Telp (Wa)" required>
+          <input type="tel" id="reg-phone" placeholder="No Telp (Wa)" required>
         </div>
         <div class="form-group row">
-          <input type="password" placeholder="Password" required>
-          <input type="password" placeholder="Konfirmasi Password" required>
+          <input type="password" id="reg-pass" placeholder="Password" required>
+          <input type="password" id="reg-pass-confirm" placeholder="Konfirmasi Password" required>
         </div>
         <button type="submit" class="btn">Daftar</button>
         <div class="login-link">
-          Sudah punya akun ? <a href="login.php"><b>Masuk</b></a>
+          Sudah punya akun ? <a href="login.html"><b>Masuk</b></a>
         </div>
       </form>
     </div>
@@ -72,6 +73,8 @@
       Hak Cipta © 2025 Kontrakan Aldhica, All Rights Reserved
     </div>
   </footer>
+
+  <script src="js/auth.js" defer></script>
 
 </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Pengguna</title>
+  <link rel="stylesheet" href="css/profile.css" />
+  <script src="js/auth.js" defer></script>
+</head>
+<body>
+  <header>
+    <a href="#" class="brand">Aldhica</a>
+    <nav class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="peraturan.html">Peraturan</a>
+      <a href="kontak.html" class="contact-button">Kontak</a>
+      <a href="login.html" id="masuk-link">Masuk</a>
+      <a href="daftar.html" id="daftar-link">Daftar</a>
+    </nav>
+  </header>
+
+  <main class="profile-content">
+    <div class="profile-card">
+      <h2>Profil Saya</h2>
+      <div class="profile-photo">
+        <img id="profile-image" src="gambar/avatar.png" alt="Foto Profil">
+        <input type="file" id="image-upload" accept="image/*">
+      </div>
+
+      <label for="name-input">Nama:</label>
+      <input type="text" id="name-input" placeholder="Masukkan nama anda" />
+
+      <button id="save-profile">Simpan Profil</button>
+      <button id="logout-button" style="margin-top: 10px; background-color: #dc3545; color: white;">Logout</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-menu">
+        <div class="site-name">Kontrakan Aldhica</div>
+        <div class="divider"></div>
+        <div class="footer-links">
+          <a href="#">Program</a>
+          <a href="#">Tentang Kami</a>
+          <a href="kontak.html">Kontak</a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram"></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+        <a href="#"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp"></a>
+        <span>emailanda@gmail.com</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Hak Cipta © 2025 Kontrakan Aldhica, All Rights Reserved
+    </div>
+  </footer>
+
+  <script src="js/auth.js" defer></script>
+</body>
+</html>

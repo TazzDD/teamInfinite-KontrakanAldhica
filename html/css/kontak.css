@@ -209,3 +209,13 @@ header {
   margin-top: 2rem;
   width: 100%;
 }
+.nav-links img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid #1d2d3c;
+}
+

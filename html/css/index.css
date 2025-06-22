@@ -289,3 +289,131 @@ header {
     margin-top: 10px;
   }
 }
+.navbar-profile-pic {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1d2d3c;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.nav-links img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid #1d2d3c;
+}
+#popup-detail {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  overflow: auto;
+  padding: 40px 15px;
+}
+
+.popup-box {
+  background: white;
+  max-width: 960px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#close-popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#close-popup:hover {
+  background: #c82333;
+}
+
+.main-image img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+#thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+#thumbnails img {
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+#thumbnails img:hover {
+  transform: scale(1.05);
+}
+
+#features {
+  margin-top: 20px;
+}
+#features .feature {
+  flex: 1 1 120px;
+  background: #f0f4f8;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 20px;
+  color: #555;
+}
+
+#price-list {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+#price-list div {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+iframe#map-frame {
+  width: 100%;
+  height: 350px;
+  margin-top: 25px;
+  border: 0;
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+

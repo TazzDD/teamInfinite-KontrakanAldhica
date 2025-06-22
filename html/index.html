@@ -7,14 +7,13 @@
   <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
-
   <header>
     <a href="#" class="brand">Aldhica</a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="nav-links">
       <a href="index.html">Beranda</a>
       <a href="peraturan.html">Peraturan</a>
-      <a href="daftar.html">Daftar</a>
-      <a href="login.html">Masuk</a>
+      <a href="daftar.html" id="daftar-link">Daftar</a>
+      <a href="login.html" id="masuk-link">Masuk</a>
       <a href="kontak.html" class="contact-button">Kontak</a>
     </nav>
   </header>
@@ -35,7 +34,7 @@
         <div class="card-content">
           <h3>Tipe 1</h3>
           <p>Program hunian sederhana dan nyaman dengan akses mudah ke fasilitas umum. Cocok untuk pasangan muda atau pekerja.</p>
-          <a href="../detail-kontrakan.php?id=1">Baca Selengkapnya</a>
+          <button class="btn-detail" data-id="1">Baca Selengkapnya</button>
         </div>
       </div>
 
@@ -44,7 +43,7 @@
         <div class="card-content">
           <h3>Tipe 2</h3>
           <p>Kontrakan tipe sedang dengan tambahan ruang tamu dan dapur yang lebih luas. Ideal untuk keluarga kecil.</p>
-          <a href="../detail-kontrakan.php?id=2">Baca Selengkapnya</a>
+          <button class="btn-detail" data-id="2">Baca Selengkapnya</button>
         </div>
       </div>
 
@@ -53,15 +52,28 @@
         <div class="card-content">
           <h3>Tipe 3</h3>
           <p>Unit dengan kapasitas lebih besar, cocok untuk keluarga dengan anak atau penghuni lebih dari 4 orang.</p>
-          <a href="../detail-kontrakan.php?id=3">Baca Selengkapnya</a>
+          <button class="btn-detail" data-id="3">Baca Selengkapnya</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="content">
-    <!-- Konten halaman tambahan jika ada -->
+  <!-- Popup Detail Modal -->
+  <div id="popup-detail">
+  <div class="popup-box">
+    <button id="close-popup">X</button>
+    <div class="main-image">
+      <img id="mainDisplay" src="" alt="Gambar Kontrakan">
+    </div>
+    <div id="thumbnails"></div>
+    <h3 class="title"></h3>
+    <div class="location"></div>
+    <div id="features" class="features"></div>
+    <p class="description"></p>
+    <div id="price-list"></div>
+    <iframe id="map-frame" allowfullscreen loading="lazy"></iframe>
   </div>
+</div>
 
   <footer class="footer">
     <div class="footer-top">
@@ -92,5 +104,7 @@
     </div>
   </footer>
 
+  <script src="js/auth.js" defer></script>
+  <script src="js/detail.js" defer></script>
 </body>
 </html>

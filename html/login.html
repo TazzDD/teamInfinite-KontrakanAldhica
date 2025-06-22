@@ -8,35 +8,38 @@
 </head>
 <body>
 
-  <header>
+  <!-- Navbar -->
+    <header>
     <a href="#" class="brand">Aldhica</a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="nav-links">
       <a href="index.html">Beranda</a>
       <a href="peraturan.html">Peraturan</a>
-      <a href="daftar.html">Daftar</a>
-      <a href="login.html">Masuk</a>
+      <a href="daftar.html" id="daftar-link">Daftar</a>
+      <a href="login.html" id="masuk-link">Masuk</a>
       <a href="kontak.html" class="contact-button">Kontak</a>
     </nav>
   </header>
 
+  <!-- Login Form -->
   <div class="content">
     <div class="login-container">
       <h2>Masuk</h2>
-      <form>
-        <input type="email" class="input-field" placeholder="Alamat Email" required />
-        <input type="password" class="input-field" placeholder="Password" required />
-        <button class="btn">Masuk</button>
+      <form id="login-form">
+        <input type="text" id="email" class="input-field" placeholder="Alamat Email" required />
+        <input type="password" id="password" class="input-field" placeholder="Password" required />
+        <button type="submit" class="btn">Masuk</button>
         <div class="register-link">
-          Belum punya akun ? <a href="daftar.html">Daftar</a>
+          Belum punya akun? <a href="daftar.html">Daftar</a>
         </div>
       </form>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-menu">
-        <div class="site-name">Nama Website</div>
+        <div class="site-name">Kontrakan Aldhica</div>
         <div class="divider"></div>
         <div class="nav-links">
           <a href="#">Program</a>
@@ -61,6 +64,10 @@
       Hak Cipta © 2025 Kontrakan Aldhica, All Rights Reserved
     </div>
   </footer>
+
+  <!-- Login Script -->
+  <script src="js/auth.js" defer></script>
+
 
 </body>
 </html>
