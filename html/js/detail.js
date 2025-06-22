@@ -89,3 +89,49 @@ document.querySelectorAll('.btn-detail').forEach(button => {
 document.getElementById('close-popup').addEventListener('click', () => {
   document.getElementById('popup-detail').style.display = 'none';
 });
+document.getElementById('bayar-btn').addEventListener('click', () => {
+  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+  if (!isLoggedIn) {
+    const konfirmasi = confirm("Anda harus login terlebih dahulu untuk menyewa. Ingin login sekarang?");
+    if (konfirmasi) {
+      window.location.href = "login.html";
+    }
+    return;
+  }
+
+  const durasi = document.getElementById('durasi').value;
+  if (!durasi) {
+    alert("Silakan pilih durasi sewa terlebih dahulu.");
+    return;
+  }
+
+  const judul = document.querySelector('.title').textContent;
+  const id = Object.keys(dataKontrakan).find(k => dataKontrakan[k].tipe === judul);
+  const harga = dataKontrakan[id]?.harga[durasi];
+
+  if (harga) {
+    const konfirmasi = confirm(`Anda akan membayar ${harga} untuk durasi ${durasi}. Lanjutkan?`);
+    if (konfirmasi) {
+      // ⛳ TAMBAHKAN LOGIKA INI SEBELUM REDIRECT
+      localStorage.setItem("durasiPembayaran", durasi);
+      localStorage.setItem("hargaPembayaran", harga);
+      localStorage.setItem("tipePembayaran", dataKontrakan[id].tipe);
+
+      const pesanan = JSON.parse(localStorage.getItem("pesanan")) || [];
+      pesanan.push({
+        tipe: dataKontrakan[id].tipe,
+        durasi,
+        harga,
+        status: "belum"
+      });
+      localStorage.setItem("pesanan", JSON.stringify(pesanan));
+
+      // ✅ REDIRECT
+      window.location.href = "pembayaran.html";
+    }
+  } else {
+    alert("Terjadi kesalahan dalam memproses harga.");
+  }
+});
+

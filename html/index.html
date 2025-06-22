@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <a href="#" class="brand">Aldhica</a>
+    <a href="index.html" class="brand">Aldhica</a>
     <nav class="nav-links" id="nav-links">
       <a href="index.html">Beranda</a>
       <a href="peraturan.html">Peraturan</a>
@@ -72,6 +72,18 @@
     <p class="description"></p>
     <div id="price-list"></div>
     <iframe id="map-frame" allowfullscreen loading="lazy"></iframe>
+    <div id="payment-section" style="margin-top: 20px;">
+  <label for="durasi" style="font-weight:bold;">Pilih Durasi Sewa:</label>
+  <select id="durasi" style="margin: 10px 0; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+    <option value="">-- Pilih Durasi --</option>
+    <option value="3 Bulan">3 Bulan</option>
+    <option value="6 Bulan">6 Bulan</option>
+    <option value="12 Bulan">12 Bulan</option>
+  </select>
+  <button id="bayar-btn" style="display:inline-block; background:#1a3c48; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">
+    Bayar Sekarang
+  </button>
+</div>
   </div>
 </div>
 

@@ -8,13 +8,20 @@ function updateNavbarBasedOnLoginStatus() {
   if (!nav) return;
 
   // Hapus elemen lama untuk mencegah duplikasi
-  nav.querySelectorAll("#masuk-link, #daftar-link, a.nav-logout").forEach(el => el.remove());
+  nav.querySelectorAll("#daftar-link, #masuk-link,  a.nav-logout").forEach(el => el.remove());
   nav.querySelector("img.profile-icon")?.remove();
+  [...nav.querySelectorAll("a")].forEach(link => {
+    if (link.textContent === "Pesanan") link.remove();
+  });
 
   const kontakButton = nav.querySelector(".contact-button");
 
   if (isLoggedIn && user) {
-    // Tambahkan gambar profil
+    const pesananLink = document.createElement("a");
+    pesananLink.href = "pesanan.html";
+    pesananLink.textContent = "Pesanan";
+    nav.insertBefore(pesananLink, kontakButton);
+
     const profilePic = document.createElement("img");
     profilePic.src = user.photo || "gambar/avatar.png";
     profilePic.alt = "Profil";
@@ -26,7 +33,6 @@ function updateNavbarBasedOnLoginStatus() {
     profilePic.style.border = "2px solid #1d2d3c";
     profilePic.onclick = () => window.location.href = "profile.html";
 
-    // Tambahkan tombol logout
     const logoutLink = document.createElement("a");
     logoutLink.href = "#";
     logoutLink.textContent = "Logout";
@@ -39,7 +45,6 @@ function updateNavbarBasedOnLoginStatus() {
     nav.insertBefore(profilePic, kontakButton?.nextSibling);
     nav.insertBefore(logoutLink, profilePic.nextSibling);
   } else {
-    // Jika belum login, tambahkan sebelum tombol kontak
     const loginLink = document.createElement("a");
     loginLink.id = "masuk-link";
     loginLink.href = "login.html";
@@ -50,12 +55,11 @@ function updateNavbarBasedOnLoginStatus() {
     daftarLink.href = "daftar.html";
     daftarLink.textContent = "Daftar";
 
-    nav.insertBefore(loginLink, kontakButton);
     nav.insertBefore(daftarLink, kontakButton);
+    nav.insertBefore(loginLink, kontakButton);
   }
 }
 
-// Fungsi untuk register
 function registerUser(event) {
   event.preventDefault();
   const name = document.querySelector('input[placeholder="Nama Lengkap"]').value;
@@ -81,7 +85,6 @@ function registerUser(event) {
   return false;
 }
 
-// Fungsi untuk login
 function loginUser(event) {
   event.preventDefault();
   const email = document.getElementById("email").value.trim();
@@ -99,7 +102,6 @@ function loginUser(event) {
   return false;
 }
 
-// Fungsi logout
 function logoutUser() {
   const yakin = confirm("Apakah Anda yakin ingin logout?");
   if (yakin) {
@@ -108,43 +110,72 @@ function logoutUser() {
   }
 }
 
-// Fungsi load profil
 function loadProfile() {
   const user = JSON.parse(localStorage.getItem("user"));
   if (!user) return;
 
-  const nameInput = document.getElementById("name-input");
-  const profileImage = document.getElementById("profile-image");
-  if (nameInput) nameInput.value = user.name || "";
-  if (profileImage) profileImage.src = user.photo || "gambar/avatar.png";
+  document.getElementById("first-name").value = user.name?.split(" ")[0] || "";
+  document.getElementById("last-name").value = user.name?.split(" ")[1] || "";
+  document.getElementById("email").value = user.email || "";
+  document.getElementById("phone").value = user.phone || "";
+  document.getElementById("address").value = user.address || "";
+  document.getElementById("city").value = user.city || "";
+  document.getElementById("province").value = user.province || "";
+  document.getElementById("zip").value = user.zip || "";
+  document.getElementById("profile-image").src = user.photo || "gambar/avatar.png";
 }
 
-// Simpan perubahan profil
 function saveProfile() {
-  const name = document.getElementById("name-input").value;
-  const profileImage = document.getElementById("profile-image").src;
   const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) return;
 
-  if (user) {
-    user.name = name;
-    user.photo = profileImage;
-    localStorage.setItem("user", JSON.stringify(user));
-    alert("Profil berhasil disimpan!");
-  }
+  const firstName = document.getElementById("first-name").value.trim();
+  const lastName = document.getElementById("last-name").value.trim();
+  user.name = `${firstName} ${lastName}`;
+  user.email = document.getElementById("email").value.trim();
+  user.phone = document.getElementById("phone").value.trim();
+  user.address = document.getElementById("address").value.trim();
+  user.city = document.getElementById("city").value.trim();
+  user.province = document.getElementById("province").value.trim();
+  user.zip = document.getElementById("zip").value.trim();
+  user.photo = document.getElementById("profile-image").src;
+
+  localStorage.setItem("user", JSON.stringify(user));
+  alert("Profil berhasil disimpan!");
+  updateNavbarBasedOnLoginStatus();
 }
 
-// Proses gambar upload
 function handleImageUpload(event) {
   const file = event.target.files[0];
   if (!file) return;
+
   const reader = new FileReader();
   reader.onload = () => {
-    document.getElementById("profile-image").src = reader.result;
+    const base64 = reader.result;
+    document.getElementById("profile-image").src = base64;
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      user.photo = base64;
+      localStorage.setItem("user", JSON.stringify(user));
+      updateNavbarBasedOnLoginStatus();
+    }
   };
   reader.readAsDataURL(file);
 }
 
-// Jalankan saat halaman siap
+function deleteProfileImage() {
+  const defaultImage = "gambar/avatar.png";
+  document.getElementById("profile-image").src = defaultImage;
+
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user) {
+    user.photo = defaultImage;
+    localStorage.setItem("user", JSON.stringify(user));
+    updateNavbarBasedOnLoginStatus();
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   updateNavbarBasedOnLoginStatus();
 
@@ -158,7 +189,7 @@ window.addEventListener("DOMContentLoaded", () => {
   if (page.includes("profile.html")) {
     loadProfile();
     document.getElementById("save-profile")?.addEventListener("click", saveProfile);
-    document.getElementById("logout-button")?.addEventListener("click", logoutUser);
-    document.getElementById("image-upload")?.addEventListener("change", handleImageUpload);
+    document.getElementById("upload-img")?.addEventListener("change", handleImageUpload);
+    document.querySelector(".delete-icon")?.addEventListener("click", deleteProfileImage);
   }
 });

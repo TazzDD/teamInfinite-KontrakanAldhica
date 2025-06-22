@@ -9,29 +9,57 @@
 </head>
 <body>
   <header>
-    <a href="#" class="brand">Aldhica</a>
+    <a href="index.html" class="brand">Aldhica</a>
     <nav class="nav-links">
       <a href="index.html">Beranda</a>
       <a href="peraturan.html">Peraturan</a>
       <a href="kontak.html" class="contact-button">Kontak</a>
-      <a href="login.html" id="masuk-link">Masuk</a>
-      <a href="daftar.html" id="daftar-link">Daftar</a>
     </nav>
   </header>
 
-  <main class="profile-content">
+  <main class="profile-wrapper">
     <div class="profile-card">
-      <h2>Profil Saya</h2>
-      <div class="profile-photo">
-        <img id="profile-image" src="gambar/avatar.png" alt="Foto Profil">
-        <input type="file" id="image-upload" accept="image/*">
+      <div class="cover-banner">
+        <img src="gambar/avatar.png" id="profile-image" alt="Foto Profil" class="avatar" />
+        <label for="upload-img" class="upload-icon">✒️</label>
+        <input type="file" id="upload-img" accept="image/*" hidden />
+        <button class="delete-icon">🗑️</button>
       </div>
 
-      <label for="name-input">Nama:</label>
-      <input type="text" id="name-input" placeholder="Masukkan nama anda" />
-
-      <button id="save-profile">Simpan Profil</button>
-      <button id="logout-button" style="margin-top: 10px; background-color: #dc3545; color: white;">Logout</button>
+      <form class="form-grid">
+        <div>
+          <label>First Name</label>
+          <input type="text" id="first-name" placeholder="Barbara" />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" id="last-name" placeholder="Anderson" />
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="email" id="email" placeholder="banderson@gmail.com" />
+        </div>
+        <div>
+          <label>Phone</label>
+          <input type="tel" id="phone" placeholder="+62 1234567890" />
+        </div>
+        <div class="full">
+          <label>Street Address</label>
+          <input type="text" id="address" placeholder="Street Address" />
+        </div>
+        <div>
+          <label>City</label>
+          <input type="text" id="city" placeholder="City" />
+        </div>
+        <div>
+          <label>State / Province</label>
+          <input type="text" id="province" placeholder="State / Province" />
+        </div>
+        <div>
+          <label>Zip Code</label>
+          <input type="text" id="zip" placeholder="Zip Code" />
+        </div>
+      </form>
     </div>
   </main>
 
@@ -57,7 +85,5 @@
       Hak Cipta © 2025 Kontrakan Aldhica, All Rights Reserved
     </div>
   </footer>
-
-  <script src="js/auth.js" defer></script>
 </body>
 </html>
