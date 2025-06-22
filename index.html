@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Kontrakan Cerdas (Final)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Analisis Kontrakan Cerdas</h1>
+    </header>
+    <main>
+        <!-- Kontainer Kuesioner (Tampil di awal) -->
+        <div id="kuesioner-container">
+            <div id="progress-bar">
+                <div id="progress-line"></div>
+                <div class="step active" data-step="1"><div class="circle">1</div><small>Dasar</small></div>
+                <div class="step" data-step="2"><div class="circle">2</div><small>Lingkungan</small></div>
+                <div class="step" data-step="3"><div class="circle">3</div><small>Gaya Hidup</small></div>
+            </div>
+            
+            <form id="multi-step-form">
+                <!-- LANGKAH 1 -->
+                <div class="step-content active" data-step="1">
+                    <h2>Langkah 1: Informasi Dasar</h2>
+                    <div class="question-group">
+                        <label for="profesi">Apa profesi Anda saat ini?</label>
+                        <select id="profesi" name="profesi" required>
+                            <option value="mahasiswa">Mahasiswa</option>
+                            <option value="karyawan">Karyawan</option>
+                            <option value="wirausaha">Wirausaha</option>
+                            <option value="freelancer">Freelancer</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Wadah untuk pertanyaan dinamis -->
+                    <div class="question-group" id="dynamic-question-penghuni">
+                        <!-- Pertanyaan tentang penghuni akan dibuat oleh JavaScript di sini -->
+                    </div>
+
+                    <div class="question-group">
+                        <label>Deskripsikan hari ideal Anda di rumah:</label>
+                         <div class="radio-tile-group">
+                            <div class="input-container"><input type="radio" id="hari-produktif" name="hari_ideal" value="produktif" checked><div class="radio-tile"><div class="icon">🚀</div><label for="hari-produktif">Super Produktif</label></div></div>
+                            <div class="input-container"><input type="radio" id="hari-santai" name="hari_ideal" value="santai"><div class="radio-tile"><div class="icon">☕</div><label for="hari-santai">Sangat Santai</label></div></div>
+                        </div>
+                    </div>
+                    <div class="nav-buttons">
+                        <span></span>
+                        <button type="button" class="nav-button primary next-btn">Lanjut &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- LANGKAH 2 -->
+                <div class="step-content" data-step="2">
+                    <h2>Langkah 2: Lingkungan & Suasana</h2>
+                    <div class="question-group">
+                        <label>Apa yang paling penting di lingkungan sekitar?</label>
+                        <div class="radio-tile-group">
+                            <div class="input-container"><input type="radio" id="sekitar-kafe" name="lingkungan" value="kafe" checked><div class="radio-tile"><div class="icon">🍽️</div><label for="sekitar-kafe">Akses Kuliner & Kafe</label></div></div>
+                            <div class="input-container"><input type="radio" id="sekitar-hijau" name="lingkungan" value="hijau"><div class="radio-tile"><div class="icon">🌳</div><label for="sekitar-hijau">Taman & Ruang Hijau</label></div></div>
+                            <div class="input-container"><input type="radio" id="sekitar-sepi" name="lingkungan" value="sepi"><div class="radio-tile"><div class="icon">🤫</div><label for="sekitar-sepi">Ketenangan Absolut</label></div></div>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <label for="view_importance">Seberapa penting pemandangan dari jendela? (0=Tidak, 10=Sangat)</label>
+                        <input type="range" id="view_importance" name="view_importance" min="0" max="10" value="5" style="width:100%;">
+                    </div>
+                    <div class="question-group">
+                        <label for="noise_tolerance">Seberapa tinggi toleransi Anda terhadap kebisingan? (0=Rendah, 10=Tinggi)</label>
+                        <input type="range" id="noise_tolerance" name="noise_tolerance" min="0" max="10" value="5" style="width:100%;">
+                    </div>
+                    <div class="nav-buttons">
+                        <button type="button" class="nav-button prev-btn">&larr; Kembali</button>
+                        <button type="button" class="nav-button primary next-btn">Lanjut &rarr;</button>
+                    </div>
+                </div>
+
+                <!-- LANGKAH 3 -->
+                <div class="step-content" data-step="3">
+                    <h2>Langkah 3: Gaya Hidup & Kebiasaan</h2>
+                    <div class="question-group">
+                        <label>Bagaimana cara terbaik Anda bersantai?</label>
+                         <div class="radio-tile-group">
+                            <div class="input-container"><input type="radio" id="relax-rumah" name="relax_method" value="rumah" checked><div class="radio-tile"><div class="icon">🛋️</div><label for="relax-rumah">Di Rumah Saja</label></div></div>
+                            <div class="input-container"><input type="radio" id="relax-nongkrong" name="relax_method" value="nongkrong"><div class="radio-tile"><div class="icon">🍻</div><label for="relax-nongkrong">Nongkrong di Luar</label></div></div>
+                        </div>
+                    </div>
+                    <div class="question-group">
+                        <label>Seberapa sering Anda mengundang teman?</label>
+                         <div class="radio-tile-group">
+                            <div class="input-container"><input type="radio" id="tamu-jarang" name="tamu" value="jarang" checked><div class="radio-tile"><div class="icon">🤫</div><label for="tamu-jarang">Hampir Tidak Pernah</label></div></div>
+                            <div class="input-container"><input type="radio" id="tamu-sering" name="tamu" value="sering"><div class="radio-tile"><div class="icon">🎉</div><label for="tamu-sering">Cukup Sering</label></div></div>
+                        </div>
+                    </div>
+                     <div class="question-group">
+                        <label>Jika ada budget lebih, untuk apa akan Anda gunakan?</label>
+                         <div class="radio-tile-group">
+                            <div class="input-container"><input type="radio" id="budget-hemat" name="budget_priority" value="hemat" checked><div class="radio-tile"><div class="icon">💰</div><label for="budget-hemat">Tetap Hemat</label></div></div>
+                            <div class="input-container"><input type="radio" id="budget-mewah" name="budget_priority" value="mewah"><div class="radio-tile"><div class="icon">💎</div><label for="budget-mewah">Fasilitas Mewah</label></div></div>
+                        </div>
+                    </div>
+                    <div class="nav-buttons">
+                        <button type="button" class="nav-button prev-btn">&larr; Kembali</button>
+                        <button type="submit" class="nav-button primary">Lihat Hasil Analisis!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- LAYAR LOADING (Tersembunyi di awal) -->
+        <div id="loading-screen" class="hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">Memulai analisis profil...</p>
+        </div>
+
+        <!-- HASIL (Tersembunyi di awal) -->
+        <section id="hasil-section" class="hidden">
+            <h2>Rekomendasi Terbaik Untuk Anda</h2>
+            <div id="persona-result"></div>
+            <div id="results-container"></div>
+            <div class="nav-buttons" style="justify-content: center;">
+                 <button type="button" id="start-over-btn" class="nav-button primary">Mulai Lagi</button>
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
