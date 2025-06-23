@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar Akun - Kontrakan Aldhica</title>
+  <link rel="stylesheet" href="css/daftar.css" />
+  
+  <style>
+    .message-container {
+      padding: 10px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 5px;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand">Aldhica</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="peraturan.html">Peraturan</a>
+      <a href="daftar.html" id="daftar-link">Daftar</a>
+      <a href="login.html" id="masuk-link">Masuk</a>
+      <a href="kontak.html" class="contact-button">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <div class="container form-container">
+      <h2>HALAMAN INI SUDAH VERSI TERBARU</h2>
+      
+      <div id="message-container" class="message-container"></div>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="reg-name" class="sr-only">Nama Lengkap</label>
+          <input type="text" id="reg-name" name="name" placeholder="Nama Lengkap" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-email" class="sr-only">Alamat Email</label>
+          <input type="email" id="reg-email" name="email" placeholder="Alamat Email" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-phone" class="sr-only">No Telp (Wa)</label>
+          <input type="tel" id="reg-phone" name="phone" placeholder="No Telp (Wa)" required>
+        </div>
+        <div class="form-group row">
+          <label for="reg-pass" class="sr-only">Password</label>
+          <input type="password" id="reg-pass" name="password" placeholder="Password" required>
+          
+          <label for="reg-pass-confirm" class="sr-only">Konfirmasi Password</label>
+          <input type="password" id="reg-pass-confirm" name="confirmPassword" placeholder="Konfirmasi Password" required>
+        </div>
+        <button type="submit" class="btn">Daftar</button>
+        <div class="login-link">
+          Sudah punya akun? <a href="login.html"><b>Masuk</b></a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    </footer>
+
+  <script src="js/auth.js" defer></script>
+
+</body>
+</html>
