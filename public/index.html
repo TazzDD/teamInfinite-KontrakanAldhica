@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard User</title>
+  <title>Kontrakan Aldhica - Hunian Modern di Jantung Kalimantan</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
@@ -18,74 +23,103 @@
     </nav>
   </header>
 
-  <div class="banner">
-    <img src="gambar/kontrakan.jpg" alt="Gambar Kontrakan">
-    <div class="banner-text">
-      <h1>Selamat Datang di Kontrakan Aldhica</h1>
-      <p>Hunian nyaman, aman, dan bersih dengan fasilitas lengkap serta harga yang bersahabat. Berlokasi strategis, cocok untuk pekerja maupun keluarga kecil.</p>
-    </div>
-  </div>
-
-  <div class="container">
-    <h2>Tersedia</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="gambar/kontrakan.jpg" alt="Tipe 1">
-        <div class="card-content">
-          <h3>Tipe 1</h3>
-          <p>Program hunian sederhana dan nyaman dengan akses mudah ke fasilitas umum. Cocok untuk pasangan muda atau pekerja.</p>
-          <button class="btn-detail" data-id="1">Baca Selengkapnya</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="gambar/kontrakan.jpg" alt="Tipe 2">
-        <div class="card-content">
-          <h3>Tipe 2</h3>
-          <p>Kontrakan tipe sedang dengan tambahan ruang tamu dan dapur yang lebih luas. Ideal untuk keluarga kecil.</p>
-          <button class="btn-detail" data-id="2">Baca Selengkapnya</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="gambar/kontrakan.jpg" alt="Tipe 3">
-        <div class="card-content">
-          <h3>Tipe 3</h3>
-          <p>Unit dengan kapasitas lebih besar, cocok untuk keluarga dengan anak atau penghuni lebih dari 4 orang.</p>
-          <button class="btn-detail" data-id="3">Baca Selengkapnya</button>
-        </div>
+  <div class="content">
+    <div class="banner">
+      <img src="gambar/kontrakan.jpg" alt="Gambar Kontrakan">
+      <div class="banner-text">
+        <h1>Selamat Datang di Kontrakan Aldhica</h1>
+        <p>Jelajahi hunian nyaman dan modern kami secara interaktif. Temukan kontrakan ideal yang sesuai dengan gaya hidup Anda.</p>
       </div>
     </div>
-  </div>
 
-  <!-- Popup Detail Modal -->
-  <div id="popup-detail">
-  <div class="popup-box">
-    <button id="close-popup">X</button>
-    <div class="main-image">
-      <img id="mainDisplay" src="" alt="Gambar Kontrakan">
+    <div class="container">
+      <h2>Pilihan Hunian Tersedia</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="gambar/kontrakan.jpg" alt="Tipe 1">
+          <div class="card-content">
+            <h3>Tipe 1</h3>
+            <p>Program hunian sederhana dan nyaman dengan akses mudah ke fasilitas umum. Cocok untuk pasangan muda atau pekerja.</p>
+            <button class="btn-detail" data-id="1">Baca Selengkapnya</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="gambar/kontrakan.jpg" alt="Tipe 2">
+          <div class="card-content">
+            <h3>Tipe 2</h3>
+            <p>Kontrakan tipe sedang dengan tambahan ruang tamu dan dapur yang lebih luas. Ideal untuk keluarga kecil.</p>
+            <button class="btn-detail" data-id="2">Baca Selengkapnya</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="gambar/kontrakan.jpg" alt="Tipe 3">
+          <div class="card-content">
+            <h3>Tipe 3</h3>
+            <p>Unit dengan kapasitas lebih besar, cocok untuk keluarga dengan anak atau penghuni lebih dari 4 orang.</p>
+            <button class="btn-detail" data-id="3">Baca Selengkapnya</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="thumbnails"></div>
-    <h3 class="title"></h3>
-    <div class="location"></div>
-    <div id="features" class="features"></div>
-    <p class="description"></p>
-    <div id="price-list"></div>
-    <iframe id="map-frame" allowfullscreen loading="lazy"></iframe>
-    <div id="payment-section" style="margin-top: 20px;">
-  <label for="durasi" style="font-weight:bold;">Pilih Durasi Sewa:</label>
-  <select id="durasi" style="margin: 10px 0; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
-    <option value="">-- Pilih Durasi --</option>
-    <option value="3 Bulan">3 Bulan</option>
-    <option value="6 Bulan">6 Bulan</option>
-    <option value="12 Bulan">12 Bulan</option>
-  </select>
-  <button id="bayar-btn" style="display:inline-block; background:#1a3c48; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">
-    Bayar Sekarang
-  </button>
-</div>
+
+    <div class="location-perks-container">
+        <h2>Kenapa Memilih Pontianak?</h2>
+        <p class="perks-subtitle">Hunian strategis di Jantung Kalimantan, gerbang utama menuju Ibu Kota Nusantara.</p>
+        <div class="perks-grid">
+            <div class="perk-item">
+            <img src="https://img.icons8.com/pastel-glyph/64/2d5a4b/city-gate.png" alt="Gerbang IKN">
+            <h3>Gerbang Menuju IKN</h3>
+            <p>Akses mudah dan cepat ke pusat pemerintahan dan ekonomi masa depan Indonesia.</p>
+            </div>
+            <div class="perk-item">
+            <img src="https://img.icons8.com/pastel-glyph/64/2d5a4b/forest.png" alt="Alam Asri">
+            <h3>Kekayaan Alam Asri</h3>
+            <p>Nikmati hijaunya hutan tropis dan keanekaragaman hayati khas Kalimantan.</p>
+            </div>
+            <div class="perk-item">
+            <img src="https://img.icons8.com/pastel-glyph/64/2d5a4b/groups.png" alt="Budaya Lokal">
+            <h3>Budaya Lokal yang Kaya</h3>
+            <p>Rasakan kehangatan budaya Dayak dan Melayu yang hidup berdampingan secara harmonis.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ai-analysis-section">
+      <h2>Bingung Memilih Tipe?</h2>
+      <p>Gunakan teknologi AI kami untuk mendapatkan rekomendasi kontrakan yang paling sesuai dengan kebutuhan Anda.</p>
+      <button id="ai-analysis-btn" class="btn-ai">Mulai Analisis AI</button>
+    </div>
+
+    <div id="popup-detail">
+        <div class="popup-box">
+            <button id="close-popup">X</button>
+            <div class="main-image">
+                <img id="mainDisplay" src="" alt="Gambar Kontrakan">
+            </div>
+            <div id="thumbnails"></div>
+            <h3 class="title"></h3>
+            <div class="location"></div>
+            <div id="features" class="features"></div>
+            <p class="description"></p>
+            <div id="price-list"></div>
+            <iframe id="map-frame" allowfullscreen loading="lazy"></iframe>
+            <div id="payment-section" style="margin-top: 20px;">
+                <label for="durasi" style="font-weight:bold;">Pilih Durasi Sewa:</label>
+                <select id="durasi" style="margin: 10px 0; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                    <option value="">-- Pilih Durasi --</option>
+                    <option value="3 Bulan">3 Bulan</option>
+                    <option value="6 Bulan">6 Bulan</option>
+                    <option value="12 Bulan">12 Bulan</option>
+                </select>
+                <button id="bayar-btn" style="display:inline-block; background:#1a3c48; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">
+                    Bayar Sekarang
+                </button>
+            </div>
+        </div>
+    </div>
   </div>
-</div>
 
   <footer class="footer">
     <div class="footer-top">
@@ -108,7 +142,9 @@
         <a href="https://wa.me/6281234567890" target="_blank" title="WhatsApp">
           <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp">
         </a>
-        <span>emailanda@gmail.com</span>
+        <a href="mailto:emailanda@gmail.com" class="footer-email">
+            <span>emailanda@gmail.com</span>
+        </a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -118,5 +154,6 @@
 
   <script src="js/auth.js" defer></script>
   <script src="js/detail.js" defer></script>
+  <script src="js/main.js" defer></script> 
 </body>
 </html>

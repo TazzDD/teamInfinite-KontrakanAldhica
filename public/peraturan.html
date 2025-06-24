@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tata Tertib Kontrakan</title>
-  <link rel="stylesheet" href="css/peraturan.css">
+  <title>Peraturan - Kontrakan Aldhica</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
-
+<div class="content-wrapper">
   <header>
     <a href="index.html" class="brand">Aldhica</a>
     <nav class="nav-links" id="nav-links">
@@ -19,9 +24,9 @@
     </nav>
   </header>
 
-  <main class="content">
-    <h2>Tata Tertib Kontrakan</h2>
-    <div class="container">
+  <main class="page-container">
+    <h2 class="page-header">Tata Tertib Kontrakan</h2>
+    <div class="rules-list-container">
       <ol>
         <li>Wajib menyerahkan fotokopi identitas resmi minimal 2 lembar (KTP/SIM/Paspor).</li>
         <li>Dilarang membawa tamu lawan jenis (yang bukan keluarga) ke dalam kamar.</li>
@@ -41,29 +46,32 @@
       </ol>
     </div>
   </main>
+</div>
 
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-menu">
         <div class="site-name">Kontrakan Aldhica</div>
         <div class="divider"></div>
-        <div class="nav-links">
+        <div class="footer-links">
           <a href="#">Program</a>
           <a href="#">Tentang Kami</a>
           <a href="kontak.html">Kontak</a>
         </div>
       </div>
       <div class="footer-contact">
-        <a href="https://www.instagram.com/" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" />
+        <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
         </a>
-        <a href="https://www.youtube.com/" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube" />
+        <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
         </a>
-        <a href="https://wa.me/6281234567890" target="_blank">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp" />
+        <a href="https://wa.me/6281234567890" target="_blank" title="WhatsApp">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp">
         </a>
-        <span>emailanda@gmail.com</span>
+        <a href="mailto:emailanda@gmail.com" class="footer-email">
+            <span>emailanda@gmail.com</span>
+        </a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -72,7 +80,5 @@
   </footer>
 
   <script src="js/auth.js" defer></script>
-
-
 </body>
 </html>
