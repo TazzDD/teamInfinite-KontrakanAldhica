@@ -13,8 +13,9 @@
       <nav>
         <ul>
           <li><a href="dashboard-admin.html">Dashboard</a></li>
-          <li><a href="data-kontrakan.php">Data Kontrakan</a></li>
+          <li><a href="data-kontrakan.html">Data Kontrakan</a></li>
           <li><a href="pesan.html">Pesan</a></li>
+          <li><a href="../../konsumen/html/index-admin.html">Halaman Produk</a></li>
         </ul>
       </nav>
     </aside>
@@ -24,36 +25,38 @@
         <h1>Tambah Data Kontrakan</h1>
       </header>
 
-      <form class="form-kontrakan" action="proses-tambah.php" method="POST" enctype="multipart/form-data">
+      <form class="form-kontrakan">
         <label>Nama Properti</label>
-        <input type="text" name="nama_properti" required />
+        <input type="text" placeholder="Nama Properti" />
 
         <label>Alamat</label>
-        <input type="text" name="alamat" required />
+        <input type="text" placeholder="Alamat" />
 
         <label>Kelengkapan</label>
-        <input type="text" name="kelengkapan" placeholder="Contoh: 2 Kamar, 1 Toilet" required />
+        <input type="text" placeholder="Contoh: 2 Kamar, 1 Toilet" />
 
         <label>Garasi</label>
-        <select name="garasi" required>
+        <select>
           <option value="">-- Pilih --</option>
           <option value="Ada">Ada</option>
           <option value="Tidak">Tidak</option>
         </select>
 
         <label>Harga per 3 Bulan</label>
-        <input type="number" name="harga_3" required placeholder="Rp" />
+        <input type="number" placeholder="Rp" />
 
         <label>Harga per 6 Bulan</label>
-        <input type="number" name="harga_6" required placeholder="Rp" />
+        <input type="number" placeholder="Rp" />
 
         <label>Harga per 12 Bulan</label>
-        <input type="number" name="harga_12" required placeholder="Rp" />
+        <input type="number" placeholder="Rp" />
 
         <label>Foto Properti (Bisa lebih dari satu)</label>
-        <input type="file" name="foto[]" multiple accept="image/*" required />
+        <input type="file" multiple accept="image/*" />
 
-        <button type="submit" class="btn-primary">Tambahkan</button>
+        <button type="button" class="btn-primary" onclick="window.location.href='data-kontrakan.html'">
+          Tambahkan
+        </button>
       </form>
     </main>
   </div>
