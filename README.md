@@ -16,6 +16,7 @@ Website informasi dan manajemen kontrakan **Aldhica** — menyediakan hunian nya
 - **Backend**: PHP / Node.js / Laravel / (sesuaikan)
 - **Database**: MySQL / MongoDB / Firebase
 - **Tools**: Bootstrap / Tailwind / React / Vue *(sesuaikan dengan stack kamu)*
+
 ## Application Development Contributor
 
 #### TIM INFINITE
