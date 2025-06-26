@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Kontrakan Cerdas</title>
+    <link rel="stylesheet" href="css/style-analisis.css">
+</head>
+<body>
+    <header>
+        <h1>Analisis Kontrakan Cerdas</h1>
+        <p>Jawab beberapa pertanyaan untuk menemukan hunian ideal Anda.</p>
+    </header>
+
+    <main>
+        <section id="kuesioner-container">
+            <div id="progress-bar">
+                <div class="step active" data-step="1">
+                    <div class="step-icon">1</div>
+                    <p>Kebutuhan Dasar</p>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-icon">2</div>
+                    <p>Lingkungan</p>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-icon">3</div>
+                    <p>Gaya Hidup</p>
+                </div>
+                <div id="progress-line"></div>
+            </div>
+
+            <form id="multi-step-form">
+                <div class="step-content active" data-step="1">
+                    <h2>Langkah 1: Kebutuhan Dasar Anda</h2>
+                    <div class="question-group">
+                        <label for="profesi">Apa profesi Anda saat ini?</label>
+                        <select id="profesi" name="profesi">
+                            <option value="mahasiswa">Mahasiswa</option>
+                            <option value="karyawan">Karyawan</option>
+                            <option value="wirausaha">Wirausaha</option>
+                        </select>
+                    </div>
+                    <div class="question-group">
+                        <label for="budget">Berapa budget bulanan Anda? <span id="budget-value" class="value-display">Rp 2.000.000</span></label>
+                        <input type="range" id="budget" name="budget" min="1000000" max="5000000" step="250000" value="2000000">
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="next-btn">Lanjut &rarr;</button>
+                    </div>
+                </div>
+
+                <div class="step-content" data-step="2">
+                    <h2>Langkah 2: Preferensi Lingkungan Ideal</h2>
+                    <div class="question-grid">
+                        <div class="question-group">
+                            <label>Suasana utama yang dicari?</label>
+                            <select name="lingkungan_suasana"><option value="tenang">Tenang & Minim Gangguan</option><option value="ramai">Ramai & Penuh Kehidupan</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Toleransi kebisingan Anda? <span name="label_kebisingan" class="value-display">5</span></label>
+                            <input type="range" name="kebisingan" min="1" max="10" value="5">
+                        </div>
+                        <div class="question-group">
+                            <label>Pentingnya pemandangan? <span name="label_pemandangan" class="value-display">5</span></label>
+                            <input type="range" name="pemandangan" min="1" max="10" value="5">
+                        </div>
+                        <div class="question-group">
+                            <label>Akses transportasi utama?</label>
+                            <select name="lingkungan_akses"><option value="jalan_kaki">Jalan Kaki</option><option value="motor">Motor</option><option value="mobil">Mobil</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Fasilitas publik terdekat?</label>
+                            <select name="lingkungan_fasilitas"><option value="kafe">Kafe & Resto</option><option value="taman">Taman & Ruang Terbuka</option><option value="supermarket">Supermarket</option></select>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="prev-btn">&larr; Kembali</button>
+                        <button type="button" class="next-btn">Lanjut &rarr;</button>
+                    </div>
+                </div>
+
+                <div class="step-content" data-step="3">
+                    <h2>Langkah 3: Detail Gaya Hidup Anda</h2>
+                    <div class="question-grid">
+                        <div class="question-group">
+                            <label>Bagaimana Anda mengisi energi?</label>
+                            <select name="gaya_energi"><option value="introvert">Sendiri di Rumah</option><option value="ekstrovert">Bersama Teman / di Luar</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Seberapa sering menerima tamu?</label>
+                            <select name="gaya_tamu"><option value="jarang">Jarang</option><option value="kadang">Kadang-kadang</option><option value="sering">Sering</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Prioritas utama di dalam hunian?</label>
+                            <select name="gaya_prioritas_internal"><option value="internet">Internet Cepat & Stabil</option><option value="dapur">Dapur Lengkap</option><option value="ruang_kerja">Area Kerja Khusus</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Bagaimana Anda di akhir pekan?</label>
+                            <select name="gaya_weekend"><option value="santai">Santai di dalam hunian</option><option value="produktif">Produktif mengerjakan hobi</option><option value="jalan">Jalan-jalan keluar</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Pentingnya privasi dari tetangga?</label>
+                            <input type="range" name="privasi" min="1" max="10" value="5">
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="prev-btn">&larr; Kembali</button>
+                        <button type="submit" class="submit-btn">Mulai Analisis AI</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section id="loading-screen" class="hidden">
+             <div class="spinner"></div>
+             <p id="loading-text">Memulai analisis profil...</p>
+        </section>
+
+        <section id="hasil-section" class="hidden">
+            <h2>Hasil Analisis AI</h2>
+            <div id="persona-result"></div>
+            <div id="results-container"></div>
+            <div class="hasil-actions">
+                <a href="index.html" class="btn-secondary">Kembali ke Beranda</a>
+                <button id="mulai-lagi-btn" class="btn-primary">Ulangi Analisis</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/mainAI.js"></script>
+</body>
+</html>
