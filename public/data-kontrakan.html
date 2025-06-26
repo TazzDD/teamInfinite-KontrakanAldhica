@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Kontrakan - Admin Panel</title>
+    <link rel="stylesheet" href="css/styleAdmin2.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Aldhica</h2>
+            <nav>
+              <ul>
+                <li><a href="dashboardAdmin.html">Dashboard</a></li>
+                <li><a href="data-kontrakan.html" class="active">Data Kontrakan</a></li>
+                <li><a href="pesan.html">Pesan</a></li>
+                <li><a href="index.html">Halaman Produk</a></li>
+              </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h1>Data Kontrakan</h1>
+                <a href="tambah-kontrakan.html" class="add-new-btn">+ Tambah</a>
+            </header>
+
+            <section class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama Properti</th>
+                            <th>Alamat</th>
+                            <th>Kelengkapan</th>
+                            <th>Garasi</th>
+                            <th>Harga/Tahun</th>
+                            <th>Deskripsi</th>
+                            <th>Foto</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="kontrakan-table-body">
+                        </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/data-kontrakan.js"></script>
+</body>
+</html>

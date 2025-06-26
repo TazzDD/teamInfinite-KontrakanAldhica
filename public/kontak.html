@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak Kami - Kontrakan Aldhica</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style2.css" />
+</head>
+<body>
+<div class="content-wrapper">
+  <header>
+    <a href="index.html" class="brand">Aldhica</a>
+    <nav class="nav-links" id="nav-links">
+        <a href="index.html">Beranda</a>
+        <a href="peraturan.html">Peraturan</a>
+        <a href="dashboardAdmin.html" id="admin-button" style="display: none;">Admin Panel</a>
+        <span id="user-display" style="display: none;"></span>
+        <a href="daftar.html" id="daftar-link">Daftar</a>
+        <a href="login.html" id="masuk-link">Masuk</a>
+        <a href="#" id="logout-button" class="logout-button" style="display: none;">Keluar</a>
+        <a href="kontak.html" class="contact-button">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="auth-page">
+    <div class="form-wrapper">
+      <h2>Hubungi Kami</h2>
+      <p style="margin-top: -20px; margin-bottom: 30px; font-size: 0.9rem; color: #555;">Ada pertanyaan atau masukan? Kirimkan kepada kami!</p>
+      
+      <div id="form-message" style="margin-bottom: 15px; font-weight: bold;"></div>
+      
+      <form id="kontak-form">
+        <div class="form-group">
+          <input type="text" id="nama" name="nama" placeholder="Nama Lengkap Anda" required />
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder="Alamat Email Anda" required />
+        </div>
+        <div class="form-group">
+          <textarea id="pesan" name="pesan" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Kirim Pesan</button>
+      </form>
+    </div>
+  </main>
+</div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-menu">
+        <div class="site-name">Kontrakan Aldhica</div>
+        <div class="divider"></div>
+        <div class="footer-links">
+          <a href="#">Program</a>
+          <a href="#">Tentang Kami</a>
+          <a href="kontak.html">Kontak</a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
+        </a>
+        <a href="https://wa.me/6281234567890" target="_blank" title="WhatsApp">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp">
+        </a>
+        <a href="mailto:emailanda@gmail.com" class="footer-email">
+            <span>emailanda@gmail.com</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Hak Cipta © 2025 Kontrakan Aldhica, All Rights Reserved
+    </div>
+  </footer>
+
+<script src="js/auth.js" defer></script>
+<script src="js/kontak.js" defer></script> 
+</body>
+</html>

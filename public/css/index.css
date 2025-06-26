@@ -1,0 +1,641 @@
+/* =================================
+   1. RESET, FONT & GAYA GLOBAL
+   ================================= */
+:root {
+  --primary-green: #2d5a4b; /* Hijau hutan tua */
+  --secondary-brown: #8c5a3b; /* Cokelat kayu */
+  --accent-gold: #e6a756;   /* Emas/Kuning hangat */
+  --bg-light: #f4f1eb;      /* Krem/Off-white */
+  --text-dark: #1f1f1f;     /* Hitam lembut */
+  --text-light: #fdfdfd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lora', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%232d5a4b' fill-opacity='0.04'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h4v1h-4v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h4v1h-4v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H16v-9H15v9h-1v-9H4v9H3v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h4v-9H0v-1h15v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9H4v-9H3v9h-1v-9h-1v4h1v-4h9v4h1v-4h9v4h1v-4h9v4h1v-4h9v4h1v-4h9v4h1v-4h9v4h1v-4h9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H16v4h-1v-4H4v4H3v-4H0v-1h3v-9H0v-1h3v-9H0v-1h3v-9H0v-1h3v-9H0v-1h3v-9H0v-1h3v-9H0v-1h3v-9H0v-1h3v-9H0v-1h4v9h-1v-9h-1v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H3v4H2v-4H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v9h-1v-9h9v9h-1v-9h9v9h-1v-9h9v9h-1v-9h9v9h-1v-9h9v9h-1v-9h9v9h-1v-9h9v9h-1v-9h9v9h-1v-9h9v9h-1v-9h9v9h-1v-9h9v9h1v-9h-1v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-1v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9h1v-9h9v9zm-1-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H3v-9H2v9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2v-9H0v-1h2V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9h-9v9h-1v-9H15v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h3v9H0v1h4v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h1v9h9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9h-9v-9h-1v9H4v-9H3v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 80px; /* Memberi ruang untuk header yang fixed */
+}
+
+h1, h2, h3, .brand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.content {
+  flex: 1;
+}
+
+/* =================================
+   2. HEADER & NAVIGASI
+   ================================= */
+header {
+  background-color: rgba(244, 241, 235, 0.85); /* Krem transparan */
+  backdrop-filter: blur(10px); /* Efek glassmorphism modern */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(45, 90, 75, 0.1);
+  height: 80px;
+}
+
+.brand {
+  font-size: 1.5rem;
+  color: var(--primary-green);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary-green);
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav-links a:not(.contact-button):after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: var(--accent-gold);
+  transition: width .3s ease;
+}
+
+.nav-links a:not(.contact-button):hover:after {
+  width: 100%;
+  left: 0;
+  background-color: var(--accent-gold);
+}
+
+.nav-links a:not(.contact-button):hover {
+  color: var(--secondary-brown);
+}
+
+.contact-button {
+  background-color: var(--primary-green);
+  color: var(--text-light) !important;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: var(--secondary-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* =================================
+   3. BANNER
+   ================================= */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 25px 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 80%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.banner-text h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--primary-green);
+}
+
+.banner-text p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* =================================
+   4. KONTEN KARTU (CARDS)
+   ================================= */
+.container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: var(--primary-green);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  border: 1px solid rgba(45, 90, 75, 0.1);
+  flex: 1 1 300px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(45, 90, 75, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: var(--primary-green);
+}
+
+.card-content p {
+  font-size: 15px;
+  color: #555;
+  flex-grow: 1;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* =================================
+   5. BAGIAN KEUNGGULAN LOKASI
+   ================================= */
+.location-perks-container {
+  max-width: 1100px;
+  margin: 70px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.location-perks-container h2 {
+  font-size: 28px;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.perks-subtitle {
+    font-size: 16px;
+    color: var(--secondary-brown);
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.perk-item {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid rgba(45, 90, 75, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.perk-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(45, 90, 75, 0.1);
+}
+
+.perk-item img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 15px;
+}
+
+.perk-item h3 {
+  font-size: 18px;
+  color: var(--primary-green);
+  margin: 0 0 10px 0;
+}
+
+.perk-item p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+
+/* =================================
+   6. BAGIAN ANALISIS AI
+   ================================= */
+.ai-analysis-section {
+  max-width: 1100px;
+  margin: 20px auto 50px auto;
+  padding: 40px 30px;
+  background-color: var(--secondary-brown);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.ai-analysis-section h2 {
+  color: var(--text-light);
+  margin-top: 0;
+  font-size: 26px;
+}
+
+.ai-analysis-section p {
+  color: var(--bg-light);
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+/* =================================
+   7. GAYA TOMBOL (BUTTONS)
+   ================================= */
+.btn-detail {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--primary-green);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-detail:hover {
+  transform: translateY(-2px);
+  background: var(--secondary-brown);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-ai {
+  background: var(--accent-gold);
+  color: var(--primary-green);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-ai:hover {
+  background: #ffb951;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* =================================
+   8. POPUP DETAIL MODAL
+   ================================= */
+#popup-detail {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  overflow: auto;
+  padding: 40px 15px;
+}
+
+.popup-box {
+  background: white;
+  max-width: 960px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#close-popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#close-popup:hover {
+  background: #c82333;
+}
+
+/* Sisanya adalah gaya untuk konten di dalam popup */
+.main-image img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; }
+#thumbnails { display: flex; gap: 10px; margin-top: 10px; }
+#thumbnails img { width: 90px; height: 60px; object-fit: cover; border-radius: 6px; cursor: pointer; transition: transform 0.3s ease; }
+#thumbnails img:hover { transform: scale(1.05); }
+#features { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+#features .feature { flex: 1 1 120px; background: #f0f4f8; padding: 12px; border-radius: 10px; font-size: 14px; color: #333; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+.description { font-size: 15px; line-height: 1.6; margin-top: 20px; color: #555; }
+#price-list { background: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+#price-list div { margin-bottom: 8px; color: #333; }
+iframe#map-frame { width: 100%; height: 350px; margin-top: 25px; border: 0; border-radius: 10px; }
+
+
+/* =================================
+   9. FOOTER
+   ================================= */
+.footer {
+  background-color: #e2dcd3;
+  padding: 2rem 1rem 0;
+  margin-top: auto;
+  border-top: 3px solid var(--primary-green);
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-menu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.site-name {
+  margin-right: 1rem;
+  color: var(--primary-green);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.divider {
+  border-left: 4px solid var(--primary-green);
+  height: 60px;
+  margin: 0 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--secondary-brown);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+.footer-links a:hover {
+    color: var(--primary-green);
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-contact a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  color: var(--secondary-brown);
+  transition: color 0.3s ease;
+}
+.footer-contact a:hover {
+    color: var(--primary-green);
+}
+
+.footer-contact a img {
+  width: 24px;
+  height: 24px;
+  /* Filter untuk mengubah warna ikon menjadi var(--primary-green) */
+  filter: invert(29%) sepia(21%) saturate(1478%) hue-rotate(113deg) brightness(93%) contrast(89%);
+  transition: filter 0.3s ease;
+}
+.footer-contact a:hover img {
+  filter: invert(19%) sepia(24%) saturate(951%) hue-rotate(114deg) brightness(95%) contrast(92%);
+}
+
+.footer-contact span {
+  font-weight: 500;
+  margin-left: 8px; /* Jarak antara ikon email dan teks */
+}
+.footer-email {
+    pointer-events: none; /* agar tidak bisa diklik jika hanya teks */
+}
+a.footer-email {
+    pointer-events: auto; /* Bisa diklik lagi jika dibungkus <a> */
+}
+
+.footer-bottom {
+  background-color: var(--primary-green);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.875rem;
+  margin: 2rem -1rem 0 -1rem; /* Full-width */
+}
+
+/* =================================
+   10. ANIMASI & EFEK MODERN
+   ================================= */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.card, .ai-analysis-section, .location-perks-container {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =================================
+   11. RESPONSIVE DESIGN
+   ================================= */
+@media screen and (max-width: 900px) {
+  body {
+    padding-top: 0;
+  }
+  
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    position: static;
+    height: auto;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .divider {
+    display: none;
+  }
+  
+  .footer-menu {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .banner-text h1 {
+    font-size: 22px;
+  }
+
+  .banner-text p {
+    font-size: 14px;
+  }
+}
+
+/* Tambahkan ini di css/style.css, di bagian HEADER & NAVIGASI */
+
+/* Gaya untuk penampil nama pengguna */
+#user-display {
+  color: var(--secondary-brown);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  padding: 6px 12px;
+}
+
+/* Gaya untuk tombol logout */
+.logout-button {
+  background-color: #d32f2f; /* Warna merah untuk aksi keluar */
+  color: var(--text-light) !important;
+  padding: 8px 16px !important;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.logout-button:hover {
+  background-color: #b71c1c !important;
+  transform: translateY(-1px);
+}
+
+/* Menghilangkan efek hover garis bawah pada tombol logout */
+.logout-button::after {
+    display: none !important;
+}
+
+/* Menyesuaikan gaya tombol admin agar lebih serasi */
+#admin-button {
+    background-color: var(--accent-gold);
+    color: var(--primary-green) !important;
+    border-radius: 5px;
+    font-weight: 700 !important;
+    padding: 6px 12px;
+}
+
+#admin-button:hover {
+    background-color: #ffca7a;
+    color: var(--primary-green) !important;
+}
+
+#admin-button::after {
+    display: none !important;
+}

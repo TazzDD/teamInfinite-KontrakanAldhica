@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masuk - Kontrakan Aldhica</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style2.css" />
+</head>
+<body>
+<div class="content-wrapper">
+  <header>
+    <a href="index.html" class="brand">Aldhica</a>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="peraturan.html">Peraturan</a>
+      <a href="daftar.html" id="daftar-link">Daftar</a>
+      <a href="login.html" id="masuk-link">Masuk</a>
+      <a href="kontak.html" class="contact-button">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="auth-page">
+    <div class="form-wrapper">
+      <h2>Masuk ke Akun Anda</h2>
+      <div id="message-container" class="message-container"></div>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email" class="sr-only">Alamat Email</label>
+          <input type="email" id="email" name="email" placeholder="Alamat Email" required />
+        </div>
+        <div class="form-group">
+          <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="btn-submit">Masuk</button>
+        <div class="auth-link">
+          Belum punya akun? <a href="daftar.html">Daftar di sini</a>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      Hak Cipta © 2025 Kontrakan Aldhica, All Rights Reserved
+    </div>
+  </footer>
+
+  <script src="js/auth.js" defer></script>
+</body>
+</html>
