@@ -592,3 +592,50 @@ a.footer-email {
     font-size: 14px;
   }
 }
+
+/* Tambahkan ini di css/style.css, di bagian HEADER & NAVIGASI */
+
+/* Gaya untuk penampil nama pengguna */
+#user-display {
+  color: var(--secondary-brown);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  padding: 6px 12px;
+}
+
+/* Gaya untuk tombol logout */
+.logout-button {
+  background-color: #d32f2f; /* Warna merah untuk aksi keluar */
+  color: var(--text-light) !important;
+  padding: 8px 16px !important;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.logout-button:hover {
+  background-color: #b71c1c !important;
+  transform: translateY(-1px);
+}
+
+/* Menghilangkan efek hover garis bawah pada tombol logout */
+.logout-button::after {
+    display: none !important;
+}
+
+/* Menyesuaikan gaya tombol admin agar lebih serasi */
+#admin-button {
+    background-color: var(--accent-gold);
+    color: var(--primary-green) !important;
+    border-radius: 5px;
+    font-weight: 700 !important;
+    padding: 6px 12px;
+}
+
+#admin-button:hover {
+    background-color: #ffca7a;
+    color: var(--primary-green) !important;
+}
+
+#admin-button::after {
+    display: none !important;
+}

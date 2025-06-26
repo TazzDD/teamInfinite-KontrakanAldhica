@@ -437,3 +437,30 @@ a.footer-email {
       padding: 30px 20px;
   }
 }
+
+/* =================================
+   7. GAYA SPESIFIK HALAMAN KONTAK
+   ================================= */
+
+/* Kita bisa menggunakan kembali gaya .form-wrapper yang sudah ada
+   untuk halaman login/daftar. Namun, kita tambahkan penyesuaian
+   untuk textarea. */
+
+.form-wrapper textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Lora', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    resize: vertical; /* Memungkinkan pengguna mengubah tinggi textarea */
+    min-height: 120px; /* Tinggi awal textarea */
+}
+
+.form-wrapper textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(45, 90, 75, 0.2);
+}

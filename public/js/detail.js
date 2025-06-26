@@ -1,136 +1,72 @@
-const dataKontrakan = {
-  1: {
-    tipe: "Rumah Kontrakan Semi Furnish Di Godean",
-    lokasi: "Godean, Sleman",
-    latitude: -7.8011,
-    longitude: 110.2790,
-    deskripsi: "Cek segera rumah 1 lantai yang asri ini, disewakan dengan pemandangan asri yang menambah nilai estetika di lingkungan hunian...",
-    gambar: ["gambar/kontrakan.jpg", "gambar/kontrakan.jpg", "gambar/kontrakan.jpg", "gambar/kontrakan.jpg"],
-    fasilitas: ["2 Kamar Tidur", "1 Kamar Mandi", "1 Mobil atau 2 Motor"],
-    harga: {
-      "3 Bulan": "Rp. 9.000.000",
-      "6 Bulan": "Rp. 16.000.000",
-      "12 Bulan": "Rp. 30.000.000"
+// public/js/detail.js - VERSI PERBAIKAN FINAL
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Menargetkan elemen-elemen yang ada di kontrakan.html
+    const kontrakanContainer = document.getElementById('kontrakan-cards-container');
+    const modal = document.getElementById('detail-modal'); // Menggunakan ID yang benar
+    const modalBody = document.getElementById('modal-body');
+    const closeModalBtn = document.getElementById('modal-close-btn'); // Menggunakan ID yang benar
+
+    // Jika salah satu elemen penting tidak ada, hentikan script
+    if (!kontrakanContainer || !modal || !modalBody || !closeModalBtn) {
+        return; 
     }
-  },
-  2: {
-    tipe: "Kontrakan Minimalis Dekat Kampus",
-    lokasi: "Condongcatur, Sleman",
-    latitude: -7.7645,
-    longitude: 110.3889,
-    deskripsi: "Hunian minimalis strategis untuk mahasiswa dan pekerja...",
-    gambar: ["gambar/kontrakan.jpg", "gambar/kontrakan1.jpg", "gambar/kontrakan.jpg"],
-    fasilitas: ["1 Kamar Tidur", "1 Kamar Mandi", "Parkir Motor"],
-    harga: {
-      "3 Bulan": "Rp. 5.000.000",
-      "6 Bulan": "Rp. 10.000.000",
-      "12 Bulan": "Rp. 18.000.000"
-    }
-  },
-  3: {
-    tipe: "Kontrakan Keluarga Nyaman dan Luas",
-    lokasi: "Kalasan, Sleman",
-    latitude: -7.7822,
-    longitude: 110.4892,
-    deskripsi: "Rumah kontrakan cocok untuk keluarga, dengan taman dan ruang tamu terpisah...",
-    gambar: ["gambar/kontrakan.jpg", "gambar/kontrakan.jpg", "gambar/kontrakan.jpg"],
-    fasilitas: ["3 Kamar Tidur", "2 Kamar Mandi", "Garasi Mobil"],
-    harga: {
-      "3 Bulan": "Rp. 12.000.000",
-      "6 Bulan": "Rp. 22.000.000",
-      "12 Bulan": "Rp. 40.000.000"
-    }
-  }
-};
 
-document.querySelectorAll('.btn-detail').forEach(button => {
-  button.addEventListener('click', () => {
-    const id = button.dataset.id;
-    const data = dataKontrakan[id];
+    // --- Fungsi untuk mengontrol pop-up ---
+    const openModal = () => modal.classList.add('active');
+    const closeModal = () => modal.classList.remove('active');
 
-    document.querySelector('.title').textContent = data.tipe;
-    document.querySelector('.location').textContent = data.lokasi;
-    document.querySelector('.description').textContent = data.deskripsi;
+    // --- Event listener utama pada wadah kartu ---
+    kontrakanContainer.addEventListener('click', async (e) => {
+        
+        // Cek apakah yang diklik adalah tombol dengan class .card-button
+        if (e.target.classList.contains('card-button')) {
+            e.preventDefault(); // MENCEGAH PINDAH HALAMAN
 
-    document.getElementById('mainDisplay').src = data.gambar[0];
+            const link = e.target;
+            const url = new URL(link.href);
+            const id = url.searchParams.get('id');
 
-    const thumbnails = document.getElementById('thumbnails');
-    thumbnails.innerHTML = '';
-    data.gambar.forEach(gbr => {
-      const thumb = document.createElement('img');
-      thumb.src = gbr;
-      thumb.onclick = () => {
-        document.getElementById('mainDisplay').src = gbr;
-      };
-      thumbnails.appendChild(thumb);
+            // Tampilkan pop-up dengan pesan "Memuat..."
+            modalBody.innerHTML = '<p>Memuat data...</p>';
+            openModal();
+
+            try {
+                // Ambil data detail dari server
+                const response = await fetch(`/api/kontrakan/${id}`);
+                if (!response.ok) {
+                    throw new Error('Data kontrakan tidak ditemukan.');
+                }
+                const kontrakan = await response.json();
+
+                // Tampilkan data lengkap ke dalam pop-up
+                modalBody.innerHTML = `
+                    <img src="/uploads/${kontrakan.foto_utama}" alt="${kontrakan.nama_properti}">
+                    <h2>${kontrakan.nama_properti}</h2>
+                    <p><strong>Alamat:</strong> ${kontrakan.alamat || '-'}</p>
+                    <p><strong>Kelengkapan:</strong> ${kontrakan.kelengkapan || '-'}</p>
+                    <p><strong>Garasi:</strong> ${kontrakan.garasi > 0 ? `${kontrakan.garasi} mobil` : 'Tidak tersedia'}</p>
+                    <p>${kontrakan.deskripsi || 'Tidak ada deskripsi.'}</p>
+                    <hr>
+                    <h4>Daftar Harga</h4>
+                    <p><strong>3 Bulan:</strong> Rp ${kontrakan.harga_3_bulan ? kontrakan.harga_3_bulan.toLocaleString('id-ID') : '-'}</p>
+                    <p><strong>6 Bulan:</strong> Rp ${kontrakan.harga_6_bulan ? kontrakan.harga_6_bulan.toLocaleString('id-ID') : '-'}</p>
+                    <p><strong>12 Bulan:</strong> Rp ${kontrakan.harga_12_bulan ? kontrakan.harga_12_bulan.toLocaleString('id-ID') : '-'}</p>
+                `;
+
+            } catch (error) {
+                modalBody.innerHTML = `<p style="color:red;">Terjadi kesalahan: ${error.message}</p>`;
+            }
+        }
     });
 
-    const features = document.getElementById('features');
-    features.innerHTML = '';
-    data.fasilitas.forEach(fasilitas => {
-      const feat = document.createElement('div');
-      feat.className = 'feature';
-      feat.textContent = fasilitas;
-      features.appendChild(feat);
+    // --- Event listener untuk menutup pop-up ---
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        // Jika yang diklik adalah area overlay gelap (di luar konten pop-up)
+        if (e.target === modal) {
+            closeModal();
+        }
     });
-
-    const priceBox = document.getElementById('price-list');
-    priceBox.innerHTML = `<strong>${Object.values(data.harga)[0]} - ${Object.values(data.harga).slice(-1)[0]}</strong>`;
-    for (let key in data.harga) {
-      priceBox.innerHTML += `<div>${key} : ${data.harga[key]}</div>`;
-    }
-
-    document.getElementById('map-frame').src = `https://www.google.com/maps?q=${data.latitude},${data.longitude}&hl=id&z=16&output=embed`;
-
-    document.getElementById('popup-detail').style.display = 'block';
-  });
 });
-
-document.getElementById('close-popup').addEventListener('click', () => {
-  document.getElementById('popup-detail').style.display = 'none';
-});
-document.getElementById('bayar-btn').addEventListener('click', () => {
-  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
-
-  if (!isLoggedIn) {
-    const konfirmasi = confirm("Anda harus login terlebih dahulu untuk menyewa. Ingin login sekarang?");
-    if (konfirmasi) {
-      window.location.href = "login.html";
-    }
-    return;
-  }
-
-  const durasi = document.getElementById('durasi').value;
-  if (!durasi) {
-    alert("Silakan pilih durasi sewa terlebih dahulu.");
-    return;
-  }
-
-  const judul = document.querySelector('.title').textContent;
-  const id = Object.keys(dataKontrakan).find(k => dataKontrakan[k].tipe === judul);
-  const harga = dataKontrakan[id]?.harga[durasi];
-
-  if (harga) {
-    const konfirmasi = confirm(`Anda akan membayar ${harga} untuk durasi ${durasi}. Lanjutkan?`);
-    if (konfirmasi) {
-      // ⛳ TAMBAHKAN LOGIKA INI SEBELUM REDIRECT
-      localStorage.setItem("durasiPembayaran", durasi);
-      localStorage.setItem("hargaPembayaran", harga);
-      localStorage.setItem("tipePembayaran", dataKontrakan[id].tipe);
-
-      const pesanan = JSON.parse(localStorage.getItem("pesanan")) || [];
-      pesanan.push({
-        tipe: dataKontrakan[id].tipe,
-        durasi,
-        harga,
-        status: "belum"
-      });
-      localStorage.setItem("pesanan", JSON.stringify(pesanan));
-
-      window.location.href = "pembayaran.html";
-    }
-  } else {
-    alert("Terjadi kesalahan dalam memproses harga.");
-  }
-});
-
+// Tidak ada kurung kurawal } ekstra di sini

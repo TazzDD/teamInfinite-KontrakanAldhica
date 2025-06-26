@@ -3,192 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analisis Kontrakan Cerdas (Final)</title>
-    <link rel="stylesheet" href="css/styleAI.css">
+    <title>Analisis Kontrakan Cerdas</title>
+    <link rel="stylesheet" href="css/style-analisis.css">
 </head>
 <body>
     <header>
         <h1>Analisis Kontrakan Cerdas</h1>
+        <p>Jawab beberapa pertanyaan untuk menemukan hunian ideal Anda.</p>
     </header>
+
     <main>
-        <!-- Kontainer Kuesioner (Tampil di awal) -->
-        <div id="kuesioner-container">
+        <section id="kuesioner-container">
             <div id="progress-bar">
+                <div class="step active" data-step="1">
+                    <div class="step-icon">1</div>
+                    <p>Kebutuhan Dasar</p>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-icon">2</div>
+                    <p>Lingkungan</p>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-icon">3</div>
+                    <p>Gaya Hidup</p>
+                </div>
                 <div id="progress-line"></div>
-                <div class="step active" data-step="1"><div class="circle"></div><small>Dasar</small></div>
-                <div class="step" data-step="2"><div class="circle"></div><small>Lingkungan</small></div>
-                <div class="step" data-step="3"><div class="circle"></div><small>Gaya Hidup</small></div>
             </div>
-            
+
             <form id="multi-step-form">
-                <!-- LANGKAH 1 -->
                 <div class="step-content active" data-step="1">
-                    <h2>Langkah 1: Informasi Dasar</h2>
+                    <h2>Langkah 1: Kebutuhan Dasar Anda</h2>
                     <div class="question-group">
                         <label for="profesi">Apa profesi Anda saat ini?</label>
-                        <select id="profesi" name="profesi" required>
+                        <select id="profesi" name="profesi">
                             <option value="mahasiswa">Mahasiswa</option>
                             <option value="karyawan">Karyawan</option>
                             <option value="wirausaha">Wirausaha</option>
-                            <option value="freelancer">Freelancer</option>
                         </select>
                     </div>
-
                     <div class="question-group">
-                        <label for="budget">Berapa budget bulanan maksimal Anda? (dalam Rp)</label>
-                        <input type="number" id="budget" name="budget" placeholder="Contoh: 1500000" min="500000" step="100000" style="text-align: center; font-size: 1.2rem; font-weight: 500;">
+                        <label for="budget">Berapa budget bulanan Anda? <span id="budget-value" class="value-display">Rp 2.000.000</span></label>
+                        <input type="range" id="budget" name="budget" min="1000000" max="5000000" step="250000" value="2000000">
                     </div>
-                    
-                    <!-- Wadah untuk pertanyaan dinamis -->
-                    <div class="question-group" id="dynamic-question-penghuni">
-                        <!-- Pertanyaan tentang penghuni akan dibuat oleh JavaScript di sini -->
-                    </div>
-
-                    <div class="question-group">
-                        <label>Deskripsikan hari ideal Anda di rumah:</label>
-                        <div class="radio-tile-group">
-                            <div class="input-container">
-                                <input type="radio" id="hari-produktif" name="hari_ideal" value="produktif" checked>
-                                <label class="radio-tile" for="hari-produktif">
-                                    <div class="icon">🚀</div><span class="radio-label-text">Super Produktif</span>
-                                </label>
-                            </div>
-                            <div class="input-container">
-                                <input type="radio" id="hari-santai" name="hari_ideal" value="santai">
-                                <label class="radio-tile" for="hari-santai">
-                                    <div class="icon">☕</div><span class="radio-label-text">Sangat Santai</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nav-buttons">
-                        <span></span>
-                        <button type="button" class="nav-button primary next-btn">Lanjut &rarr;</button>
+                    <div class="step-navigation">
+                        <button type="button" class="next-btn">Lanjut &rarr;</button>
                     </div>
                 </div>
 
-                <!-- LANGKAH 2 -->
                 <div class="step-content" data-step="2">
-                    <h2>Langkah 2: Lingkungan & Suasana</h2>
-                    <div class="question-group">
-                        <label>Apa yang paling penting di lingkungan sekitar?</label>
-                        <div class="radio-tile-group">
-                            <div class="input-container">
-                                <input type="radio" id="sekitar-kafe" name="lingkungan" value="kafe" checked>
-                                <label class="radio-tile" for="sekitar-kafe">
-                                    <div class="icon">🍽️</div><span class="radio-label-text">Akses Kuliner & Kafe</span>
-                                </label>
-                            </div>
-                            <div class="input-container">
-                                <input type="radio" id="sekitar-hijau" name="lingkungan" value="hijau">
-                                <label class="radio-tile" for="sekitar-hijau">
-                                    <div class="icon">🌳</div><span class="radio-label-text">Taman & Ruang Hijau</span>
-                                </label>
-                            </div>
-                            <div class="input-container">
-                                <input type="radio" id="sekitar-sepi" name="lingkungan" value="sepi">
-                                <label class="radio-tile" for="sekitar-sepi">
-                                    <div class="icon">🤫</div><span class="radio-label-text">Ketenangan Absolut</span>
-                                </label>
-                            </div>
+                    <h2>Langkah 2: Preferensi Lingkungan Ideal</h2>
+                    <div class="question-grid">
+                        <div class="question-group">
+                            <label>Suasana utama yang dicari?</label>
+                            <select name="lingkungan_suasana"><option value="tenang">Tenang & Minim Gangguan</option><option value="ramai">Ramai & Penuh Kehidupan</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Toleransi kebisingan Anda? <span name="label_kebisingan" class="value-display">5</span></label>
+                            <input type="range" name="kebisingan" min="1" max="10" value="5">
+                        </div>
+                        <div class="question-group">
+                            <label>Pentingnya pemandangan? <span name="label_pemandangan" class="value-display">5</span></label>
+                            <input type="range" name="pemandangan" min="1" max="10" value="5">
+                        </div>
+                        <div class="question-group">
+                            <label>Akses transportasi utama?</label>
+                            <select name="lingkungan_akses"><option value="jalan_kaki">Jalan Kaki</option><option value="motor">Motor</option><option value="mobil">Mobil</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Fasilitas publik terdekat?</label>
+                            <select name="lingkungan_fasilitas"><option value="kafe">Kafe & Resto</option><option value="taman">Taman & Ruang Terbuka</option><option value="supermarket">Supermarket</option></select>
                         </div>
                     </div>
-                    <div class="question-group">
-                        <label for="view_importance">Seberapa penting pemandangan dari jendela? (0=Tidak, 10=Sangat)</label>
-                        <input type="range" id="view_importance" name="view_importance" min="0" max="10" value="5">
-                    </div>
-                    <div class="question-group">
-                        <label for="noise_tolerance">Seberapa tinggi toleransi Anda terhadap kebisingan? (0=Rendah, 10=Tinggi)</label>
-                        <input type="range" id="noise_tolerance" name="noise_tolerance" min="0" max="10" value="5">
-                    </div>
-                    <div class="nav-buttons">
-                        <button type="button" class="nav-button prev-btn">&larr; Kembali</button>
-                        <button type="button" class="nav-button primary next-btn">Lanjut &rarr;</button>
+                    <div class="step-navigation">
+                        <button type="button" class="prev-btn">&larr; Kembali</button>
+                        <button type="button" class="next-btn">Lanjut &rarr;</button>
                     </div>
                 </div>
 
-                <!-- LANGKAH 3 -->
                 <div class="step-content" data-step="3">
-                    <h2>Langkah 3: Gaya Hidup & Kebiasaan</h2>
-                    <div class="question-group">
-                        <label>Bagaimana cara terbaik Anda bersantai?</label>
-                        <div class="radio-tile-group">
-                            <div class="input-container">
-                                <input type="radio" id="relax-rumah" name="relax_method" value="rumah" checked>
-                                <label class="radio-tile" for="relax-rumah">
-                                    <div class="icon">🛋️</div><span class="radio-label-text">Di Rumah Saja</span>
-                                </label>
-                            </div>
-                            <div class="input-container">
-                                <input type="radio" id="relax-nongkrong" name="relax_method" value="nongkrong">
-                                <label class="radio-tile" for="relax-nongkrong">
-                                    <div class="icon">🍻</div><span class="radio-label-text">Nongkrong di Luar</span>
-                                </label>
-                            </div>
+                    <h2>Langkah 3: Detail Gaya Hidup Anda</h2>
+                    <div class="question-grid">
+                        <div class="question-group">
+                            <label>Bagaimana Anda mengisi energi?</label>
+                            <select name="gaya_energi"><option value="introvert">Sendiri di Rumah</option><option value="ekstrovert">Bersama Teman / di Luar</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Seberapa sering menerima tamu?</label>
+                            <select name="gaya_tamu"><option value="jarang">Jarang</option><option value="kadang">Kadang-kadang</option><option value="sering">Sering</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Prioritas utama di dalam hunian?</label>
+                            <select name="gaya_prioritas_internal"><option value="internet">Internet Cepat & Stabil</option><option value="dapur">Dapur Lengkap</option><option value="ruang_kerja">Area Kerja Khusus</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Bagaimana Anda di akhir pekan?</label>
+                            <select name="gaya_weekend"><option value="santai">Santai di dalam hunian</option><option value="produktif">Produktif mengerjakan hobi</option><option value="jalan">Jalan-jalan keluar</option></select>
+                        </div>
+                        <div class="question-group">
+                            <label>Pentingnya privasi dari tetangga?</label>
+                            <input type="range" name="privasi" min="1" max="10" value="5">
                         </div>
                     </div>
-                    <div class="question-group">
-                        <label>Seberapa sering Anda mengundang teman?</label>
-                        <div class="radio-tile-group">
-                            <div class="input-container">
-                                <input type="radio" id="tamu-jarang" name="tamu" value="jarang" checked>
-                                <label class="radio-tile" for="tamu-jarang">
-                                    <div class="icon">🤫</div><span class="radio-label-text">Hampir Tidak Pernah</span>
-                                </label>
-                            </div>
-                            <div class="input-container">
-                                <input type="radio" id="tamu-sering" name="tamu" value="sering">
-                                <label class="radio-tile" for="tamu-sering">
-                                    <div class="icon">🎉</div><span class="radio-label-text">Cukup Sering</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="question-group">
-                        <label>Jika ada budget lebih, untuk apa akan Anda gunakan?</label>
-                         <div class="radio-tile-group">
-                            <div class="input-container">
-                                <input type="radio" id="budget-hemat" name="budget_priority" value="hemat" checked>
-                                <label class="radio-tile" for="budget-hemat">
-                                    <div class="icon">💰</div><span class="radio-label-text">Tetap Hemat</span>
-                                </label>
-                            </div>
-                            <div class="input-container">
-                                <input type="radio" id="budget-mewah" name="budget_priority" value="mewah">
-                                <label class="radio-tile" for="budget-mewah">
-                                    <div class="icon">💎</div><span class="radio-label-text">Fasilitas Mewah</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nav-buttons">
-                        <button type="button" class="nav-button prev-btn">&larr; Kembali</button>
-                        <button type="submit" class="nav-button primary">Lihat Hasil Analisis!</button>
+                    <div class="step-navigation">
+                        <button type="button" class="prev-btn">&larr; Kembali</button>
+                        <button type="submit" class="submit-btn">Mulai Analisis AI</button>
                     </div>
                 </div>
             </form>
-        </div>
-        <!-- LAYAR LOADING (Tersembunyi di awal) -->
-        <div id="loading-screen" class="hidden">
-            <div class="spinner"></div>
-            <p id="loading-text">Memulai analisis profil...</p>
-        </div>
-        <!-- HASIL (Tersembunyi di awal) -->
+        </section>
+
+        <section id="loading-screen" class="hidden">
+             <div class="spinner"></div>
+             <p id="loading-text">Memulai analisis profil...</p>
+        </section>
+
         <section id="hasil-section" class="hidden">
-            <!-- Konten hasil akan dibuat oleh JavaScript -->
+            <h2>Hasil Analisis AI</h2>
+            <div id="persona-result"></div>
+            <div id="results-container"></div>
+            <div class="hasil-actions">
+                <a href="index.html" class="btn-secondary">Kembali ke Beranda</a>
+                <button id="mulai-lagi-btn" class="btn-primary">Ulangi Analisis</button>
+            </div>
         </section>
     </main>
-
-    <!-- Struktur Pop-up Modal -->
-    <div id="modal-container" class="hidden">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <div class="modal-icon">&#9888;</div> <!-- Warning Icon -->
-            <h3 class="modal-title">Perhatian</h3>
-            <p class="modal-message">Pesan error akan muncul di sini.</p>
-            <button class="modal-close-btn">Mengerti</button>
-        </div>
-    </div>
 
     <script src="js/mainAI.js"></script>
 </body>
