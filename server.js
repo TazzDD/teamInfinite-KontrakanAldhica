@@ -1,8 +1,3 @@
-// ==========================================================
-// ==    SERVER.JS - VERSI FINAL, LENGKAP, DAN UTUH        ==
-// ==========================================================
-
-// 1. IMPORT SEMUA MODUL YANG DIBUTUHKAN
 const express = require('express');
 const mysql = require('mysql');
 const bcrypt = require('bcrypt');
@@ -11,23 +6,19 @@ const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
 
-// 2. INISIALISASI & KONFIGURASI
 const app = express();
 const port = 3000;
 
-// Konfigurasi Multer untuk penyimpanan file
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'public/uploads/'),
     filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname)
 });
 const upload = multer({ storage: storage });
 
-// Middleware untuk menyajikan file statis, membaca JSON, dan data form
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Middleware untuk sesi
 app.use(session({
     secret: 'kunci-rahasia-kontrakan-aldhica-yang-super-aman',
     resave: false,
@@ -35,11 +26,10 @@ app.use(session({
     cookie: { 
         secure: false, 
         httpOnly: true,
-        maxAge: 3600000 // 1 jam
+        maxAge: 3600000
     }
 }));
 
-// 3. KONEKSI KE DATABASE
 const db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
@@ -55,7 +45,6 @@ db.connect((err) => {
     console.log('Berhasil terhubung ke database MySQL dengan ID ' + db.threadId);
 });
 
-// 4. DEFINISI MIDDLEWARE OTENTIKASI & OTORISASI
 const isAuth = (req, res, next) => {
     if (req.session.isLoggedIn) {
         return next();
@@ -245,18 +234,11 @@ app.delete('/api/kontrakan/:id', isAuth, isAdmin, (req, res) => {
         });
     });
 });
-
-// ==========================================================
-// ==            6. RUTE PENYAJI HALAMAN HTML              ==
-// ==========================================================
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 app.get('/kontrakan.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'kontrakan.html')));
 app.get('/analisis.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'analisis.html')));
 app.get('/edit-kontrakan.html', isAuth, isAdmin, (req, res) => res.sendFile(path.join(__dirname, 'public', 'edit-kontrakan.html')));
 
-// ==========================================================
-// ==                 7. JALANKAN SERVER                   ==
-// ==========================================================
 app.listen(port, () => {
     console.log(`Server berjalan di http://localhost:${port}`);
     console.log("Gunakan Ctrl+C untuk menghentikan server.");
